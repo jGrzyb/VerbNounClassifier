@@ -1,7 +1,6 @@
 import re
 import json
 
-
 with open('text.txt') as file:
     text = file.read()
 
@@ -17,14 +16,13 @@ for i, w in enumerate(words):
         # change verb to present tense
         present = w[:-2] + 'as'
         for j in range(i, i+4):
-            # TODO: remove -n from nouns in the accusative case, and the plural -j ending
-            if words[j].endswith('o'):
+            if words[j].endswith(('o', 'on', 'oj' 'ojn')):
                 if present not in d:
                     d[present] = set()
-                d[present].add(words[j])
+                d[present].add(words[j].rstrip('jn'))
 
 # Take 100 with the most verbs
 result = sorted(d, key=lambda x: len(d[x]), reverse=True)[:100]
 
-with open('result.json', 'w') as f:
-    json.dump({k: sorted(v) for k, v in d.items()}, f, indent=4)
+with open('result.json', 'w') as file:
+    json.dump({k: sorted(v) for k, v in d.items()}, file, indent=4)
