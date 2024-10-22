@@ -17,6 +17,7 @@ for i, w in enumerate(words):
         # change verb to present tense
         present = w[:-2] + 'as'
         for j in range(i, i+4):
+            # TODO: remove -n from nouns in the accusative case, and the plural -j ending
             if words[j].endswith('o'):
                 if present not in d:
                     d[present] = set()

@@ -1,7 +1,7 @@
 # Verb Noun Classifier
 
-This is project that classifies nouns to verbs that they appear after. That allows to group nouns with similar meanings, nouns describing similar objects either belonging to tha same group of objects.
+This project is a simple semantic analyzer of Esperanto. It groups nouns based on what verb they appear after, which creates sets of nouns with simmilar meanings.
 
-To run this program you need to put into repo file text.txt in Esperanto that will be source file for a program. Alternatively you can run textGetter.py that will download Bible in Esperanto into that file.
+In order to run this program, you first need to provide text in Esperanto, that will serve as the basis of the analysis. You can either put your own text in `text.txt`, or run `textGetter.py` which will download the Bible in Esperanto from [sacred-texts.com](https://sacred-texts.com) and put it in said file.
 
-Results will appear in results.json file
+Afterwards, run `program.py`. Results of the analysis will appear in `results.json`.
