@@ -26,3 +26,14 @@ result = sorted(d, key=lambda x: len(d[x]), reverse=True)[:100]
 
 with open('result.json', 'w') as file:
     json.dump({k: sorted(v) for k, v in d.items()}, file, indent=4)
+
+common_nouns = {}
+for i in range(len(result)):
+    for j in range(i+1, len(result)):
+        common_nouns[result[i] + " " + result[j]] = d[result[i]] & d[result[j]]
+
+
+res = sorted(common_nouns, key=lambda x: len(common_nouns[x]), reverse=True)[:100]
+
+with open('common_nouns.json', 'w') as file:
+    json.dump({k: sorted(v) for k, v in common_nouns.items()}, file, indent=4)
